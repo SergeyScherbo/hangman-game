@@ -47,3 +47,20 @@
 //
 // alert(answerArray.join(' '));
 // alert("Great job, the answer was " + word);
+
+
+function validatePIN (pin) {
+  //return true or false
+  for (let i = 0; i < pin.length; i++) {
+    if (Number(pin[i]) === NaN) {
+      return false;
+    }
+  }
+  if (pin.length === 4 || pin.length === 6) {
+
+
+    return true;
+  } else {
+    return false;
+  }
+}
