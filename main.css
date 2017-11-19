@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  font-family: 'Montserrat';
+  font-size: 1rem;
+}
+
+.game {
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 20px;
+  background-color: #222;
+  color: #fff;
+}
+
+.header h1 {
+  font-size: 1.3rem;
+}
+
+.lives {
+  display: flex;
+  font-size: 1rem;
+}
+
+.lives__el {
+  color: #E75151;
+}
+
+.lives__el:not(:last-of-type) {
+  margin-right: 10px;
+}
