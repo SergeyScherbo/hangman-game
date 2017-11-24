@@ -48,3 +48,77 @@ body {
 .lives__el:not(:last-of-type) {
   margin-right: 10px;
 }
+
+main {
+  display: flex;
+}
+
+.content,
+.canvas-outer {
+  width: 50%;
+  height: calc(100vh - 50px);
+}
+
+.canvas-outer {
+  line-height: calc(100vh - 50px);
+  text-align: center;
+}
+
+canvas {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.footer {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: .8rem;
+}
+
+.footer a {
+  color: #e75151;
+}
+
+.content {
+  padding-top: 160px;
+  padding-left: 100px;
+}
+
+.content h2 {
+  margin-bottom: 10px;
+}
+
+.content p {
+  margin-bottom: 50px;
+  line-height: 1.5;
+}
+
+.guess {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #ccc;
+  width: 300px;
+  height: 50px;
+  line-height: 49px;
+  font-size: 1.5rem;
+  margin-bottom: 100px;
+}
+
+.result {
+  font-size: 0;
+}
+
+.result li {
+  display: inline-block;
+  vertical-align: bottom;
+  width: 30px;
+  border-bottom: 1px solid #333;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.result li:not(:last-of-type) {
+  margin-right: 20px;
+}
