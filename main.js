@@ -11,8 +11,9 @@ const guessBtn = document.querySelector('.input__btn');
 // field to make a guess
 const guessField = document.querySelector('.input__field');
 
+
 // current guess
-let guess = guessField.value;
+let guess;
 
 // amount of lives
 let lives = 7;
@@ -34,7 +35,7 @@ const words = [
 // function to choose random word
 const pickWord = (arr) => arr[Math.floor(Math.random() * arr.length)];
 let randomWord = pickWord(words);
-console.log(randomWord);
+// console.log(randomWord);
 
 const makeBlanks = (str) => {
   // we get our word variable and create blank for each letter and add it to the page;
@@ -48,7 +49,7 @@ const blankets = makeBlanks(randomWord); // I feel like this is bad;
 
 // function to make a g
 const makeGuess = () => {
-  const guess = guessField.value;
+  updateGuess();
   if(guess.length > 1) {
     alert('Please, enter only one letter');
   } else if (guess.length === 0) {
@@ -58,8 +59,13 @@ const makeGuess = () => {
   compare(guess, randomWord);
 }
 
+const updateGuess = () => {
+  guess = guessField.value;
+}
+
 const compare = (guess, word) => {
   if(word.indexOf(guess) !== -1) {
+    console.log('You guessed one or more letter!');
     word = Array.from(word);
     word.map(function(val, i) {
       if (val === guess) {
@@ -68,8 +74,8 @@ const compare = (guess, word) => {
     })
   } else {
     console.log('sorry, your guess is wrong...');
+    lives--;
   }
-  // console.log(word.search(guess));
 }
 
 const drawHangman = (lives) => {
