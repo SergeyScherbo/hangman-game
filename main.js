@@ -2,6 +2,18 @@ const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 ctx.lineWidth = 5;
 
+// our list of letters
+const result = document.querySelector('.result');
+
+// button to make a guess
+const guessBtn = document.querySelector('.input__btn');
+
+// field to make a guess
+const guessField = document.querySelector('.input__field');
+
+// current guess
+let guess = guessField.value;
+
 // amount of lives
 let lives = 7;
 
@@ -20,7 +32,45 @@ const words = [
 ];
 
 // function to choose random word
-const randomWord = (arr) => arr[Math.floor(Math.random() * arr.length)];
+const pickWord = (arr) => arr[Math.floor(Math.random() * arr.length)];
+let randomWord = pickWord(words);
+console.log(randomWord);
+
+const makeBlanks = (str) => {
+  // we get our word variable and create blank for each letter and add it to the page;
+  for (let i = 0; i < str.length; i++) {
+    result.innerHTML += `<li></li>`;
+  }
+
+  return document.querySelectorAll('.result li');
+};
+const blankets = makeBlanks(randomWord); // I feel like this is bad;
+
+// function to make a g
+const makeGuess = () => {
+  const guess = guessField.value;
+  if(guess.length > 1) {
+    alert('Please, enter only one letter');
+  } else if (guess.length === 0) {
+    alert('You should enter something');
+  }
+
+  compare(guess, randomWord);
+}
+
+const compare = (guess, word) => {
+  if(word.indexOf(guess) !== -1) {
+    word = Array.from(word);
+    word.map(function(val, i) {
+      if (val === guess) {
+        blankets[i].textContent = val;
+      }
+    })
+  } else {
+    console.log('sorry, your guess is wrong...');
+  }
+  // console.log(word.search(guess));
+}
 
 const drawHangman = (lives) => {
   switch(lives) {
@@ -74,4 +124,6 @@ const drawHangman = (lives) => {
       ctx.stroke();
       break;
   }
-}
+};
+
+guessBtn.addEventListener('click', makeGuess);
