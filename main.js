@@ -2,7 +2,25 @@ const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 ctx.lineWidth = 5;
 
+// amount of lives
 let lives = 7;
+
+// variable to track programm state
+let isPlaying = true; // for now I make true, so the game will start as soon as page loads
+
+const words = [
+  "bycicle",
+  "earth",
+  "javascript",
+  "winter",
+  "christmas",
+  "tesla",
+  "computer",
+  "japan"
+];
+
+// function to choose random word
+const randomWord = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 const drawHangman = (lives) => {
   switch(lives) {
