@@ -11,6 +11,8 @@ const guessBtn = document.querySelector('.input__btn');
 // field to make a guess
 const guessField = document.querySelector('.input__field');
 
+// displayed lives
+const livesList = document.querySelector('.lives');
 
 // current guess
 let guess;
@@ -54,9 +56,9 @@ const makeGuess = () => {
     alert('Please, enter only one letter');
   } else if (guess.length === 0) {
     alert('You should enter something');
+  } else {
+    compare(guess, randomWord);
   }
-
-  compare(guess, randomWord);
 }
 
 const updateGuess = () => {
@@ -73,8 +75,11 @@ const compare = (guess, word) => {
       }
     })
   } else {
+    const lastLiveElement = livesList.querySelector('.lives__el:last-of-type');
+    drawHangman(lives);
     console.log('sorry, your guess is wrong...');
     lives--;
+    livesList.removeChild(lastLiveElement);
   }
 }
 
