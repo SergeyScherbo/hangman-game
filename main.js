@@ -66,7 +66,7 @@ const startGame = () => {
 
   // create blanks on the page, based on random word;
   blanks = makeBlanks(randomWord);
-}
+};
 
 // function to make a g
 const makeGuess = () => {
@@ -82,11 +82,11 @@ const makeGuess = () => {
   } else {
     compare(guess, randomWord);
   }
-}
+};
 
 const updateGuess = () => {
   guess = guessField.value;
-}
+};
 
 const compare = (guess, word) => {
   if(word.indexOf(guess) !== -1) {
@@ -106,7 +106,26 @@ const compare = (guess, word) => {
   }
 
   guessField.value = "";
-}
+
+  endGame();
+};
+
+const endGame = () => {
+  if(lifes < 1) {
+    alert('You don\'t have lifes anymore... You lost.');
+    isPlaying = false;
+    lifes = 7;
+    for (let i = 0; i < 7; i++) {
+      lifesList.innerHTML += `<li class="lifes__el"><i class="fa fa-heart"></i></li>`;
+    }
+
+    const lastLetter = document.querySelector('.result li:last-of-type');
+    for (let i = 0; i < randomWord.length; i++) {
+      result.removeChild(result.lastChild);
+    }
+    return;
+  }
+};
 
 const drawHangman = (lives) => {
   switch(lives) {
