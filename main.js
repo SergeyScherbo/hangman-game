@@ -30,7 +30,7 @@ let randomWord;
 let lifes = 7;
 
 // variable to track programm state
-let isPlaying = true; // for now I make true, so the game will start as soon as page loads
+let isPlaying = false;
 
 const words = [
   "bycicle",
@@ -56,6 +56,11 @@ const makeBlanks = (str) => {
 };
 
 const startGame = () => {
+  if(isPlaying) {
+    alert('You already playing, please guess current word first');
+    return;
+  }
+  isPlaying = true;
   // choose random word
   randomWord = pickWord(words);
 
@@ -65,6 +70,10 @@ const startGame = () => {
 
 // function to make a g
 const makeGuess = () => {
+  if (!isPlaying) {
+    alert('You didn\'t start the game yet!');
+    return;
+  }
   updateGuess();
   if(guess.length > 1) {
     alert('Please, enter only one letter');
