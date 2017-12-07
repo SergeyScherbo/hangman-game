@@ -104,6 +104,8 @@ const compare = (guess, word) => {
     lifes--;
     lifesList.removeChild(lastLifeElement);
   }
+
+  guessField.value = "";
 }
 
 const drawHangman = (lives) => {
