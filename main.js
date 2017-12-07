@@ -12,13 +12,22 @@ const guessBtn = document.querySelector('.input__btn');
 const guessField = document.querySelector('.input__field');
 
 // displayed lives
-const livesList = document.querySelector('.lives');
+const lifesList = document.querySelector('.lifes');
+
+// new game btn
+const gameBtn = document.querySelector('.newgame');
 
 // current guess
 let guess;
 
+// blankss
+let blanks;
+
+// word
+let randomWord;
+
 // amount of lives
-let lives = 7;
+let lifes = 7;
 
 // variable to track programm state
 let isPlaying = true; // for now I make true, so the game will start as soon as page loads
@@ -36,8 +45,6 @@ const words = [
 
 // function to choose random word
 const pickWord = (arr) => arr[Math.floor(Math.random() * arr.length)];
-let randomWord = pickWord(words);
-// console.log(randomWord);
 
 const makeBlanks = (str) => {
   // we get our word variable and create blank for each letter and add it to the page;
@@ -47,7 +54,14 @@ const makeBlanks = (str) => {
 
   return document.querySelectorAll('.result li');
 };
-const blankets = makeBlanks(randomWord); // I feel like this is bad;
+
+const startGame = () => {
+  // choose random word
+  randomWord = pickWord(words);
+
+  // create blanks on the page, based on random word;
+  blanks = makeBlanks(randomWord);
+}
 
 // function to make a g
 const makeGuess = () => {
@@ -71,15 +85,15 @@ const compare = (guess, word) => {
     word = Array.from(word);
     word.map(function(val, i) {
       if (val === guess) {
-        blankets[i].textContent = val;
+        blanks[i].textContent = val;
       }
     })
   } else {
-    const lastLiveElement = livesList.querySelector('.lives__el:last-of-type');
-    drawHangman(lives);
+    const lastLifeElement = lifesList.querySelector('.lifes__el:last-of-type');
+    drawHangman(lifes);
     console.log('sorry, your guess is wrong...');
-    lives--;
-    livesList.removeChild(lastLiveElement);
+    lifes--;
+    lifesList.removeChild(lastLifeElement);
   }
 }
 
@@ -137,4 +151,5 @@ const drawHangman = (lives) => {
   }
 };
 
+gameBtn.addEventListener('click', startGame);
 guessBtn.addEventListener('click', makeGuess);
