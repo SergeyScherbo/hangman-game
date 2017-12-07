@@ -36,16 +36,16 @@ body {
   font-size: 1.3rem;
 }
 
-.lives {
+.lifes {
   display: flex;
   font-size: 1rem;
 }
 
-.lives__el {
+.lifes__el {
   color: #E75151;
 }
 
-.lives__el:not(:last-of-type) {
+.lifes__el:not(:last-of-type) {
   margin-right: 10px;
 }
 
@@ -96,7 +96,7 @@ canvas {
 }
 
 .input {
-  margin-bottom: 100px;
+  margin-bottom: 80px;
   font-size: 0;
 }
 
@@ -147,6 +147,7 @@ canvas {
   display: inline-block;
   vertical-align: bottom;
   width: 30px;
+  height: 30px;
   border-bottom: 1px solid #333;
   text-align: center;
   font-size: 1.5rem;
@@ -154,4 +155,17 @@ canvas {
 
 .result li:not(:last-of-type) {
   margin-right: 20px;
+}
+
+.newgame {
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  height: 50px;
+  line-height: 50px;
+  margin-top: 50px;
+  padding: 0 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #49BEB7;
 }
