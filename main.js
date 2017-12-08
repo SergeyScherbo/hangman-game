@@ -1,5 +1,7 @@
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
+const canvWidth = canvas.width;
+const canvHeight = canvas.height;
 ctx.lineWidth = 5;
 
 // our list of letters
@@ -115,14 +117,19 @@ const endGame = () => {
     alert('You don\'t have lifes anymore... You lost.');
     isPlaying = false;
     lifes = 7;
+
+    // add lifes to the page, so we can start new game
     for (let i = 0; i < 7; i++) {
       lifesList.innerHTML += `<li class="lifes__el"><i class="fa fa-heart"></i></li>`;
     }
 
-    const lastLetter = document.querySelector('.result li:last-of-type');
+    // remove all blanks
     for (let i = 0; i < randomWord.length; i++) {
       result.removeChild(result.lastChild);
     }
+
+    // clear the canvas
+    ctx.clearRect(0, 0, canvWidth, canvHeight);
     return;
   }
 };
