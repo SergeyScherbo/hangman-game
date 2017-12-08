@@ -133,6 +133,12 @@ const endGame = () => {
     ctx.clearRect(0, 0, canvWidth, canvHeight);
     return;
   }
+
+  let isEverythingFilled = Array.from(blanks).every(blank => blank.textContent.length > 0);
+
+  if(isEverythingFilled) {
+    alert('You guessed the word, congratulations!');
+  }
 };
 
 const drawHangman = (lives) => {
