@@ -111,33 +111,38 @@ const compare = (guess, word) => {
   guessField.value = "";
   guessField.focus();
 
-  endGame();
+  checkState();
 };
 
 const endGame = () => {
+  isPlaying = false;
+  lifes = 7;
+
+  // remove class 'lost' for each life element
+  const lifesListEl = lifesList.querySelectorAll('.lifes__el');
+  lifesListEl.forEach(life => life.classList.remove('lost'));
+
+  // remove all blanks
+  for (let i = 0; i < randomWord.length; i++) {
+    result.removeChild(result.lastChild);
+  }
+
+  // clear the canvas
+  ctx.clearRect(0, 0, canvWidth, canvHeight);
+  return;
+}
+
+const checkState = () => {
   if(lifes < 1) {
-    alert('You don\'t have lifes anymore... You lost.');
-    isPlaying = false;
-    lifes = 7;
-
-    // remove class 'lost' for each life element
-    const lifesListEl = lifesList.querySelectorAll('.lifes__el');
-    lifesListEl.forEach(life => life.classList.remove('lost'));
-
-    // remove all blanks
-    for (let i = 0; i < randomWord.length; i++) {
-      result.removeChild(result.lastChild);
-    }
-
-    // clear the canvas
-    ctx.clearRect(0, 0, canvWidth, canvHeight);
-    return;
+    alert(`Sorry you lost! The word was "${randomWord}"`);
+    endGame();
   }
 
   let isEverythingFilled = Array.from(blanks).every(blank => blank.textContent.length > 0);
 
   if(isEverythingFilled) {
     alert('You guessed the word, congratulations!');
+    endGame();
   }
 };
 
