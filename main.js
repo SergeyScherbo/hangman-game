@@ -109,6 +109,7 @@ const compare = (guess, word) => {
   }
 
   guessField.value = "";
+  guessField.focus();
 
   endGame();
 };
@@ -119,7 +120,7 @@ const endGame = () => {
     isPlaying = false;
     lifes = 7;
 
-    // add lifes to the page, so we can start new game
+    // remove class 'lost' for each life element
     const lifesListEl = lifesList.querySelectorAll('.lifes__el');
     lifesListEl.forEach(life => life.classList.remove('lost'));
 
