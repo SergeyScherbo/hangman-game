@@ -100,11 +100,12 @@ const compare = (guess, word) => {
       }
     })
   } else {
-    const lastLifeElement = lifesList.querySelector('.lifes__el:last-of-type');
+    const curLifeElement = lifesList.querySelector(`.lifes__el:nth-last-of-type(${lifes})`);
+    curLifeElement.classList.add('lost');
+
     drawHangman(lifes);
     console.log('sorry, your guess is wrong...');
     lifes--;
-    lifesList.removeChild(lastLifeElement);
   }
 
   guessField.value = "";

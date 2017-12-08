@@ -43,10 +43,15 @@ body {
 
 .lifes__el {
   color: #E75151;
+  transition: .3s;
 }
 
 .lifes__el:not(:last-of-type) {
   margin-right: 10px;
+}
+
+.lost {
+  color: #9e9898;
 }
 
 main {
