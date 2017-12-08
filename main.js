@@ -120,9 +120,8 @@ const endGame = () => {
     lifes = 7;
 
     // add lifes to the page, so we can start new game
-    for (let i = 0; i < 7; i++) {
-      lifesList.innerHTML += `<li class="lifes__el"><i class="fa fa-heart"></i></li>`;
-    }
+    const lifesListEl = lifesList.querySelectorAll('.lifes__el');
+    lifesListEl.forEach(life => life.classList.remove('lost'));
 
     // remove all blanks
     for (let i = 0; i < randomWord.length; i++) {
