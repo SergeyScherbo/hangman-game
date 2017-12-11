@@ -145,6 +145,7 @@ canvas {
 }
 
 .result {
+  height: 30px;
   font-size: 0;
 }
 
