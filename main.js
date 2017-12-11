@@ -19,6 +19,9 @@ const lifesList = document.querySelector('.lifes');
 // new game btn
 const gameBtn = document.querySelector('.newgame');
 
+// finish game btn
+const endGameBtn = document.querySelector('.endgame');
+
 // current guess
 let guess;
 
@@ -68,6 +71,8 @@ const startGame = () => {
 
   // create blanks on the page, based on random word;
   blanks = makeBlanks(randomWord);
+
+  endGameBtn.classList.remove('hide');
 };
 
 // function to make a g
@@ -132,6 +137,8 @@ const endGame = () => {
 
   // clear the canvas
   ctx.clearRect(0, 0, canvWidth, canvHeight);
+
+  endGameBtn.classList.add('hide');
   return;
 }
 
@@ -205,3 +212,4 @@ const drawHangman = (lives) => {
 
 gameBtn.addEventListener('click', startGame);
 guessBtn.addEventListener('click', makeGuess);
+endGameBtn.addEventListener('click', endGame);
