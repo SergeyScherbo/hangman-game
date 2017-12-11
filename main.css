@@ -162,7 +162,11 @@ canvas {
   margin-right: 20px;
 }
 
-.newgame {
+.btns {
+  font-size: 0;
+}
+
+.btn {
   outline: none;
   border: none;
   border-radius: 5px;
@@ -172,5 +176,20 @@ canvas {
   padding: 0 20px;
   font-size: 1rem;
   color: #fff;
+}
+
+.newgame {
   background-color: #49BEB7;
+}
+
+.endgame {
+  margin-left: 10px;
+  background-color: #E75151;
+  transition: .3s;
+}
+
+.hide {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(15px);
 }
