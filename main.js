@@ -92,10 +92,13 @@ const updateGuess = () => {
 
 const compare = (guess, word) => {
   if(word.indexOf(guess) !== -1) {
-    console.log('You guessed one or more letter!');
     word = Array.from(word);
     word.map(function(val, i) {
       if (val === guess) {
+        if(blanks[i].textContent.length > 0) {
+          alert(`You aleady guessed "${guess}" letter`);
+          return;
+        }
         blanks[i].textContent = val;
       }
     })
