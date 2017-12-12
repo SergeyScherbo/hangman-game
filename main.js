@@ -75,13 +75,15 @@ const startGame = () => {
   endGameBtn.classList.remove('hide');
 };
 
-// function to make a g
+// function to make a guess
 const makeGuess = () => {
   if (!isPlaying) {
     alert('You didn\'t start the game yet!');
     return;
   }
-  updateGuess();
+
+  guess = guessField.value;
+
   if(guess.length > 1) {
     alert('Please, enter only one letter');
   } else if (guess.length === 0) {
@@ -89,10 +91,6 @@ const makeGuess = () => {
   } else {
     compare(guess, randomWord);
   }
-};
-
-const updateGuess = () => {
-  guess = guessField.value;
 };
 
 const compare = (guess, word) => {
