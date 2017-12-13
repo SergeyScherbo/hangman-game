@@ -22,6 +22,10 @@ const gameBtn = document.querySelector('.newgame');
 // finish game btn
 const endGameBtn = document.querySelector('.endgame');
 
+// shadow and modal
+const shadow = document.querySelector('.shadow');
+const modal = document.querySelector('.modal');
+
 // current guess
 let guess;
 
@@ -157,6 +161,12 @@ const checkState = () => {
   }
 };
 
+const closeModal = function(e) {
+  if(e.target.classList.contains('close')) {
+    this.classList.add('hide');
+  }
+}
+
 const drawHangman = (lives) => {
   switch(lives) {
     case 7:
@@ -214,3 +224,4 @@ const drawHangman = (lives) => {
 gameBtn.addEventListener('click', startGame);
 guessBtn.addEventListener('click', makeGuess);
 endGameBtn.addEventListener('click', endGame);
+shadow.addEventListener('click', closeModal);
