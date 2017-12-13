@@ -83,11 +83,14 @@ const makeGuess = () => {
   }
 
   guess = guessField.value;
+  const guessRegex = /[^a-z]/gi;
 
   if(guess.length > 1) {
     alert('Please, enter only one letter');
   } else if (guess.length === 0) {
     alert('You should enter something');
+  } else if (guess.match(guessRegex) !== null) {
+    alert('You can\'t enter non-letter symbols');
   } else {
     compare(guess, randomWord);
   }
