@@ -106,7 +106,7 @@ const compare = (guess, word) => {
     word.map(function(val, i) {
       if (val === guess) {
         if(blanks[i].textContent.length > 0) {
-          alert(`You aleady guessed "${guess}" letter`);
+          openModal('guess');
           return;
         }
         blanks[i].textContent = val;
@@ -117,7 +117,6 @@ const compare = (guess, word) => {
     curLifeElement.classList.add('lost');
 
     drawHangman(lifes);
-    console.log('sorry, your guess is wrong...');
     lifes--;
   }
 
@@ -149,14 +148,14 @@ const endGame = () => {
 
 const checkState = () => {
   if(lifes < 1) {
-    alert(`Sorry you lost! The word was "${randomWord}"`);
+    openModal('lose');
     endGame();
   }
 
   let isEverythingFilled = Array.from(blanks).every(blank => blank.textContent.length > 0);
 
   if(isEverythingFilled) {
-    alert('You guessed the word, congratulations!');
+    openModal('win');
     endGame();
   }
 };
@@ -195,6 +194,21 @@ const openModal = function(type) {
     case 'notLetter':
       modalHead.textContent = 'Jeez';
       modalBody.textContent = 'You can\'t enter non-letter symbols';
+      break;
+
+    case 'guess':
+      modalHead.textContent = 'Whoopsie';
+      modalBody.textContent = `You already guessed "${guess}" letter`;
+      break;
+
+    case 'lose':
+      modalHead.textContent = 'Better luck next time!'
+      modalBody.textContent = `You lost. The word was "${randomWord}"`;
+      break;
+
+    case 'win':
+      modalHead.textContent = 'Congratulations!';
+      modalBody.textContent = `You guessed the word "${randomWord}"`;
       break;
   };
 
