@@ -163,7 +163,7 @@ const checkState = () => {
 
 const closeModal = function(e) {
   if(e.target.classList.contains('close')) {
-    this.classList.add('hide');
+    this.classList.add('hide-modal');
   }
 }
 
