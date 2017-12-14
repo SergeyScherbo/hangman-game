@@ -170,34 +170,45 @@ const openModal = function(type) {
   let modalHead = document.querySelector('.modal__head h3');
   let modalBody = document.querySelector('.modal__body p');
 
+  const randomModalHead = [
+    'Oops',
+    'OMG!',
+    'Damn...',
+    'Oh, come on',
+    'Jeez',
+    'Whoopsie'
+  ];
+
+  let rnd = randomModalHead[Math.floor(Math.random() * randomModalHead.length)];
+
   switch(type) {
     case 'playing':
-      modalHead.textContent = 'Oops';
+      modalHead.textContent = rnd;
       modalBody.textContent = 'You already playing, please guess current word first';
       break;
 
     case 'notPlaying':
-      modalHead.textContent = 'OMG!';
+      modalHead.textContent = rnd;
       modalBody.textContent = 'You didn\'t start the game yet!';
       break;
 
     case 'singleLetter':
-      modalHead.textContent = 'Damn...';
+      modalHead.textContent = rnd;
       modalBody.textContent = 'Please, enter only one letter';
       break;
 
     case 'emptyGuess':
-      modalHead.textContent = 'Oh, come on';
+      modalHead.textContent = rnd;
       modalBody.textContent = 'You should enter something!';
       break;
 
     case 'notLetter':
-      modalHead.textContent = 'Jeez';
+      modalHead.textContent = rnd;
       modalBody.textContent = 'You can\'t enter non-letter symbols';
       break;
 
     case 'guess':
-      modalHead.textContent = 'Whoopsie';
+      modalHead.textContent = rnd;
       modalBody.textContent = `You already guessed "${guess}" letter`;
       break;
 
