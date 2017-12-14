@@ -66,7 +66,8 @@ const makeBlanks = (str) => {
 
 const startGame = () => {
   if(isPlaying) {
-    alert('You already playing, please guess current word first');
+    // alert('You already playing, please guess current word first');
+    openModal('playing');
     return;
   }
   isPlaying = true;
@@ -165,6 +166,20 @@ const closeModal = function(e) {
   if(e.target.classList.contains('close')) {
     this.classList.add('hide-modal');
   }
+};
+
+const openModal = function(type) {
+  let modalHead = document.querySelector('.modal__head h3');
+  let modalBody = document.querySelector('.modal__body p');
+
+  switch(type) {
+    case 'playing':
+      modalHead.textContent = 'Oops';
+      modalBody.textContent = 'You already playing, please guess current word first';
+      break;
+  };
+
+  shadow.classList.remove('hide-modal');
 }
 
 const drawHangman = (lives) => {
