@@ -66,7 +66,6 @@ const makeBlanks = (str) => {
 
 const startGame = () => {
   if(isPlaying) {
-    // alert('You already playing, please guess current word first');
     openModal('playing');
     return;
   }
@@ -83,7 +82,7 @@ const startGame = () => {
 // function to make a guess
 const makeGuess = () => {
   if (!isPlaying) {
-    alert('You didn\'t start the game yet!');
+    openModal('notPlaying');
     return;
   }
 
@@ -91,11 +90,11 @@ const makeGuess = () => {
   const guessRegex = /[^a-z]/gi;
 
   if(guess.length > 1) {
-    alert('Please, enter only one letter');
+    openModal('singleLetter');
   } else if (guess.length === 0) {
-    alert('You should enter something');
+    openModal('emptyGuess');
   } else if (guess.match(guessRegex) !== null) {
-    alert('You can\'t enter non-letter symbols');
+    openModal('notLetter');
   } else {
     compare(guess, randomWord);
   }
@@ -176,6 +175,26 @@ const openModal = function(type) {
     case 'playing':
       modalHead.textContent = 'Oops';
       modalBody.textContent = 'You already playing, please guess current word first';
+      break;
+
+    case 'notPlaying':
+      modalHead.textContent = 'OMG!';
+      modalBody.textContent = 'You didn\'t start the game yet!';
+      break;
+
+    case 'singleLetter':
+      modalHead.textContent = 'Damn...';
+      modalBody.textContent = 'Please, enter only one letter';
+      break;
+
+    case 'emptyGuess':
+      modalHead.textContent = 'Oh, come on';
+      modalBody.textContent = 'You should enter something!';
+      break;
+
+    case 'notLetter':
+      modalHead.textContent = 'Jeez';
+      modalBody.textContent = 'You can\'t enter non-letter symbols';
       break;
   };
 
