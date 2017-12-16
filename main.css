@@ -245,15 +245,23 @@ canvas {
   text-align: center;
 }
 
-.modal__ok {
+.modal__btn {
   outline: none;
   border: none;
   height: 35px;
   line-height: 35px;
   width: 137px;
   border-radius: 5px;
-  background-color: #49BEB7;
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
+}
+
+.modal__btn_ok {
+  background-color: #49BEB7;
+}
+
+.modal__btn_end {
+  background-color: #e75151;
+  display: none;
 }
