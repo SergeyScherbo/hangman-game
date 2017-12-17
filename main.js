@@ -25,6 +25,7 @@ const endGameBtn = document.querySelector('.endgame');
 // shadow and modal
 const shadow = document.querySelector('.shadow');
 const modal = document.querySelector('.modal');
+const modalCloseBtn = document.querySelector('.modal__btn_end');
 
 // current guess
 let guess;
@@ -282,5 +283,5 @@ const drawHangman = (lives) => {
 
 gameBtn.addEventListener('click', startGame);
 guessBtn.addEventListener('click', makeGuess);
-endGameBtn.addEventListener('click', endGame);
+endGameBtn.addEventListener('click', openModal);
 shadow.addEventListener('click', closeModal);
