@@ -25,6 +25,7 @@ const endGameBtn = document.querySelector('.endgame');
 // shadow and modal
 const shadow = document.querySelector('.general-shadow');
 const modal = document.querySelector('.general-modal');
+const endGameModal = document.querySelector('.endgame-modal');
 const modalCloseBtn = document.querySelector('.modal__btn_end');
 
 // current guess
@@ -227,6 +228,10 @@ const openModal = function(type) {
   shadow.classList.remove('hide-modal');
 }
 
+const endGameConfirm = function(e) {
+  endGameModal.classList.remove('hide-modal');
+}
+
 const drawHangman = (lives) => {
   switch(lives) {
     case 7:
@@ -283,5 +288,5 @@ const drawHangman = (lives) => {
 
 gameBtn.addEventListener('click', startGame);
 guessBtn.addEventListener('click', makeGuess);
-endGameBtn.addEventListener('click', endGame);
+endGameBtn.addEventListener('click', endGameConfirm);
 shadow.addEventListener('click', closeModal);
