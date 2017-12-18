@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-  <div class="shadow close">
-    <div class="modal">
+  <div class="shadow general-shadow close">
+    <div class="modal general-modal">
       <i class="modal__close close fa fa-close"></i>
       <header class="modal__head">
         <h3>Hello! Welcome to the Hangman-game!</h3>
@@ -21,7 +21,19 @@
       </div>
       <div class="modal__btns">
         <button class="modal__btn modal__btn_ok close">Got it</button>
-        <button class="modal__btn modal__btn_end close hide-modal">Finish game</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="shadow hide-modal close">
+    <div class="modal">
+      <i class="modal__close close fa fa-close"></i>
+      <div class="modal__body">
+        <p>Are you sure, you want to finish the game? You will lose all progress.</p>
+      </div>
+      <div class="modal__btns">
+        <button class="modal__btn modal__btn_ok close">Continue</button>
+        <button class="modal__btn modal__btn_end close">Finish game</button>
       </div>
     </div>
   </div>
