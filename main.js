@@ -288,5 +288,7 @@ const drawHangman = (lives) => {
 
 gameBtn.addEventListener('click', startGame);
 guessBtn.addEventListener('click', makeGuess);
-endGameBtn.addEventListener('click', endGameConfirm);
 shadow.addEventListener('click', closeModal);
+endGameBtn.addEventListener('click', endGameConfirm);
+modalCloseBtn.addEventListener('click', endGame);
+endGameModal.addEventListener('click', closeModal);
