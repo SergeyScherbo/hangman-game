@@ -51,7 +51,23 @@ const words = [
   "christmas",
   "tesla",
   "computer",
-  "japan"
+  "japan",
+  "constructor",
+  "cookie",
+  "weather",
+  "basketball",
+  "laptop",
+  "vehicle",
+  "superman",
+  "lego",
+  "money",
+  "cup",
+  "muscles",
+  "creator",
+  "forest",
+  "lake",
+  "mountain",
+  "summit"
 ];
 
 // function to choose random word
