@@ -67,7 +67,11 @@ const words = [
   "forest",
   "lake",
   "mountain",
-  "summit"
+  "summit",
+  "music",
+  "guitar",
+  "programming",
+  "generation"
 ];
 
 // function to choose random word
