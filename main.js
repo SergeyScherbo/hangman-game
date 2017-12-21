@@ -71,7 +71,12 @@ const words = [
   "music",
   "guitar",
   "programming",
-  "generation"
+  "generation",
+  "children",
+  "parents",
+  "europe",
+  "universe",
+  "movie"
 ];
 
 // function to choose random word
